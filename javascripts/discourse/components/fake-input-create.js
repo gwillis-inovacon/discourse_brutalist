@@ -1,5 +1,4 @@
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Composer from "discourse/models/composer";
@@ -9,7 +8,9 @@ export default class FakeInputCreate extends Component {
   @service router;
   @service currentUser;
 
-  @tracked hasDrafts = this.currentUser.draft_count;
+  get hasDrafts() {
+    return this.currentUser.get("draft_count");
+  }
 
   get category() {
     return this.router.currentRoute?.attributes?.category;
