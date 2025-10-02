@@ -207,9 +207,17 @@ body {
 }
 
 /* Ensure custom sidebar buttons (like Wekan) display properly */
-.sidebar-section-link-wrapper a.sidebar-section-link {
+.sidebar-section-link-wrapper a.sidebar-section-link,
+.wekan-sidebar-btn,
+[class*="-sidebar-btn"] {
   display: flex !important;
   align-items: center;
+  opacity: 1 !important;
+  visibility: visible !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  padding: 0.5em var(--d-sidebar-row-horizontal-padding) !important;
 }
 
 .add-to-sidebar {
