@@ -26,4 +26,13 @@ $redditish-border-highlight-color: $primary-200 !default;
   --redditish-bg-color: #{$redditish-background-color};
   --redditish-border-color: #{$redditish-border-color};
   --redditish-border-highlight-color: #{$redditish-border-highlight-color};
+
+  /* Brutalist design variables */
+  --brutal-border-width: 4px;
+  --brutal-border-color: #{dark-light-choose(#000000, #ffffff)};
+  --brutal-shadow-color: #{dark-light-choose(#000000, #ffffff)};
+  --brutal-accent-cyan: #22d3ee;
+  --brutal-accent-purple: #a855f7;
+  --brutal-accent-orange: #fb923c;
+  --brutal-accent-yellow: #facc15;
 }

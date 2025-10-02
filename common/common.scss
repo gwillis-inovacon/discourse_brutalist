@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 :root {
   --d-button-border-radius: 100px;
   --d-nav-pill-border-radius: 100px;
@@ -5,18 +7,35 @@
   --topic-body-width: 900px;
 }
 
+/* Brutalist shadow mixins */
+@mixin shadow-brutal {
+  box-shadow: 8px 8px 0px 0px var(--brutal-shadow-color);
+}
+
+@mixin shadow-brutal-hover {
+  box-shadow: 12px 12px 0px 0px var(--brutal-shadow-color);
+}
+
+@mixin shadow-brutal-sm {
+  box-shadow: 4px 4px 0px 0px var(--brutal-shadow-color);
+}
+
 @mixin custom-card {
   box-sizing: border-box;
   padding: 0.75em;
-  border-radius: 0.25em;
-  border: 1px solid var(--redditish-border-color);
+  border-radius: 0;
+  border: var(--brutal-border-width) solid var(--brutal-border-color);
   background: var(--secondary);
+  @include shadow-brutal;
+  transition: all 0.2s ease;
 
   @content;
 
   .discourse-no-touch & {
     &:hover {
-      border: 1px solid var(--redditish-border-highlight-color);
+      border: var(--brutal-border-width) solid var(--brutal-accent-cyan);
+      @include shadow-brutal-hover;
+      transform: translateY(-2px);
     }
   }
 }
@@ -48,6 +67,8 @@
 body {
   background: var(--redditish-bg-color);
   background-image: none !important; /* overrides category bg because we use it for banners instead */
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.6;
 
   &:not(.has-sidebar-page) {
     .sidebar-wrapper {
@@ -131,6 +152,16 @@ body {
       [class*="topic-map__"]
     ) {
     padding: 0.5em 1em;
+    border: 2px solid var(--brutal-border-color);
+    border-radius: 0;
+    @include shadow-brutal-sm;
+    transition: all 0.2s ease;
+    font-weight: 700;
+
+    &:hover {
+      @include shadow-brutal;
+      transform: translateY(-2px);
+    }
   }
 }
 
@@ -156,10 +187,10 @@ body {
 }
 
 .sidebar-wrapper .sidebar-container {
-  border-right: 1px solid var(--redditish-border-color);
+  border-right: var(--brutal-border-width) solid var(--brutal-border-color);
 
   &:hover {
-    border-color: var(--redditish-border-highlight-color);
+    border-color: var(--brutal-accent-cyan);
   }
 }
 
@@ -188,11 +219,43 @@ body {
 }
 
 .powered-by-discourse {
-  border: 1px solid var(--primary-500);
+  border: 2px solid var(--brutal-border-color);
   grid-area: content;
   align-self: end;
+  border-radius: 0;
 }
 
 html.composer-open #main-outlet {
   padding-bottom: var(--composer-height);
+}
+
+/* Brutalist custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+  border: 2px solid var(--brutal-accent-cyan);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brutal-accent-cyan);
+  border: 2px solid var(--brutal-border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible, a:focus-visible {
+  outline: 4px solid var(--brutal-accent-cyan);
+  outline-offset: 2px;
 }

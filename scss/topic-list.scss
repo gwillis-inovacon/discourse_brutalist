@@ -278,12 +278,15 @@ div.education {
 #dismiss-topics-bottom {
   display: block;
   background: var(--secondary);
-  border: 1px solid var(--redditish-border-color);
+  border: var(--brutal-border-width) solid var(--brutal-border-color);
+  border-radius: 0;
+  @include shadow-brutal-sm;
 
   .discourse-no-touch & {
     &:hover {
-      border: 1px solid var(--redditish-border-highlight-color);
+      border: var(--brutal-border-width) solid var(--brutal-accent-cyan);
       color: var(--primary);
+      @include shadow-brutal;
 
       .d-icon {
         color: currentcolor;

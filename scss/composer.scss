@@ -1,7 +1,7 @@
 #reply-control {
-  border-radius: 5px 5px 0 0;
-  border: 1px solid var(--primary-low-mid);
-  box-shadow: var(--shadow-dropdown);
+  border-radius: 0;
+  border: var(--brutal-border-width) solid var(--brutal-border-color);
+  @include shadow-brutal;
 
   .composer-fields:empty {
     display: none;
@@ -11,7 +11,9 @@
   .select-kit.combo-box .select-kit-header,
   .select-kit.multi-select .multi-select-header,
   #reply-title {
-    border-color: var(--primary-low-mid);
+    border-color: var(--brutal-border-color);
+    border-radius: 0;
+    border-width: 2px;
   }
 
   .d-editor-textarea-wrapper {
@@ -19,7 +21,8 @@
   }
 
   &:hover {
-    border: 1px solid var(--redditish-border-highlight-color);
+    border: var(--brutal-border-width) solid var(--brutal-accent-cyan);
+    @include shadow-brutal-hover;
   }
 
   .grippie {
@@ -31,12 +34,13 @@
       margin-left: calc(50% - 2.25em);
       padding: 0.75em 1em;
       margin-right: calc(50% - 1.85em);
-      border-top-color: var(--redditish-border-color);
+      border-top-color: var(--brutal-border-color);
+      border-top-width: 3px;
     }
 
     &:hover {
       &::before {
-        border-top-color: var(--redditish-border-highlight-color);
+        border-top-color: var(--brutal-accent-cyan);
       }
     }
   }

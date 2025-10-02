@@ -1,21 +1,24 @@
 .d-header {
   box-shadow: none;
-  border-bottom: 1px solid var(--redditish-border-color);
+  border-bottom: var(--brutal-border-width) solid var(--brutal-border-color);
 
   &:hover {
-    border-bottom: 1px solid var(--redditish-border-highlight-color);
+    border-bottom: var(--brutal-border-width) solid var(--brutal-accent-cyan);
   }
 
   &:has(.menu-panel:hover) {
-    border-bottom: 1px solid var(--redditish-border-highlight-color);
+    border-bottom: var(--brutal-border-width) solid var(--brutal-accent-cyan);
   }
 }
 
 .menu-panel {
-  border-radius: 4px;
+  border-radius: 0;
+  border: 2px solid var(--brutal-border-color);
+  @include shadow-brutal-sm;
 
   &:hover {
-    border: 1px solid var(--redditish-border-highlight-color);
+    border: 2px solid var(--brutal-accent-cyan);
+    @include shadow-brutal;
   }
 }
 
