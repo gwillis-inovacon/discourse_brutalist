@@ -149,7 +149,8 @@ body {
       .btn-icon,
       [class*="popup-menu-btn"],
       [class*="post-action-menu__"],
-      [class*="topic-map__"]
+      [class*="topic-map__"],
+      .sidebar-section-link-wrapper &
     ) {
     padding: 0.5em 1em;
     border: 2px solid var(--brutal-border-color);
