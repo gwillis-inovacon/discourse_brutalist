@@ -150,7 +150,8 @@ body {
       [class*="popup-menu-btn"],
       [class*="post-action-menu__"],
       [class*="topic-map__"],
-      .sidebar-section-link-wrapper &
+      .sidebar-section-link-wrapper &,
+      .sidebar-section-link
     ) {
     padding: 0.5em 1em;
     border: 2px solid var(--brutal-border-color);
@@ -203,6 +204,12 @@ body {
 .sidebar-section-link-wrapper button {
   border-radius: 0;
   padding: 0 var(--d-sidebar-row-horizontal-padding) !important; // overrides button specificity
+}
+
+/* Ensure custom sidebar buttons (like Wekan) display properly */
+.sidebar-section-link-wrapper a.sidebar-section-link {
+  display: flex !important;
+  align-items: center;
 }
 
 .add-to-sidebar {
